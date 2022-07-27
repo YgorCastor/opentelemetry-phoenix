@@ -148,7 +148,7 @@ defmodule OpentelemetryPhoenix do
     attributes = %{
       "phoenix.plug": meta.plug,
       "phoenix.action": meta.plug_opts,
-      "http.request_headers": meta.req_headers,
+      "http.request_headers": meta.conn.req_headers,
       "http.route": meta.route
     }
 
