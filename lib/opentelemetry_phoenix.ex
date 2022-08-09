@@ -148,7 +148,7 @@ defmodule OpentelemetryPhoenix do
     attributes = %{
       "phoenix.plug": meta.plug,
       "phoenix.action": meta.plug_opts,
-      "http.request_headers": meta.conn.req_headers,
+      "http.req_headers": Enum.map_join(meta.conn.req_headers, ",", fn {header, value} -> "#{header}: #{value}" end),
       "http.route": meta.route
     }
 
